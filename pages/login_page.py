@@ -7,9 +7,6 @@ class LoginPage(BasePage):
     def __init__(self, driver):
         self.locator = LoginPageLocators
         super(LoginPage, self).__init__(driver)  # Python2 version
-        # self.base_url = 'https://identity.hudl.com/login' # This doesn't work because of the redirect
-        # override the base URL of BasePage with https://identity.hudl.com/login
-        # super(LoginPage, self).__init__(driver, self.base_url)  # Python2 version
 
     def is_loaded(self):
         self.wait_element(*LoginPageLocators.EMAIL)
