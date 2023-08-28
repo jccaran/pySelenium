@@ -10,7 +10,7 @@ class BaseTest:
     def init_driver(self):
         # Read config file
         try:
-            with open('config.json') as config_file:
+            with open('./config.json') as config_file:
                 config = json.load(config_file)
         except Exception as e:
             print(f'Something went wrong: {e}')

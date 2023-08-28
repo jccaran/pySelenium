@@ -29,10 +29,8 @@ class TestLogin(BaseTest):
 
     @pytest.mark.web()
     def test_login_valid_user(self):
-        test_page = HudlBase(self.driver)
-        test_page.open('')
-        test_page.login_hudl_from_homepage()
         test_page = LoginPage(self.driver)
+        test_page.open('login')
         user = open_json('testdata.json')
         test_page.login(user["email"], user["password"])
         test_page = HomePage(self.driver)
@@ -40,37 +38,33 @@ class TestLogin(BaseTest):
 
     @pytest.mark.web()
     def test_login_invalid_user(self):
-        test_page = HudlBase(self.driver)
-        test_page.open('')
-        test_page.login_hudl_from_homepage()
         test_page = LoginPage(self.driver)
+        test_page.open('login')
         test_page.login("johnthephisherman@fakeemail.edu", "nefarious")
         assert test_page.invalid_auth() == "We don't recognize that email and/or password"
 
     @pytest.mark.web()
     def test_password_masking(self):
-        test_page = HudlBase(self.driver)
-        test_page.open('')
-        test_page.login_hudl_from_homepage()
         test_page = LoginPage(self.driver)
+        test_page.open('login')
         test_page.enter_email("notimportant@email.edu")
         test_page.enter_password("password")
         assert test_page.password_is_masked("password")
 
     @pytest.mark.web()
     def test_login_empty_user(self):
-        test_page = HudlBase(self.driver)
-        test_page.open('')
-        test_page.login_hudl_from_homepage()
         test_page = LoginPage(self.driver)
+        test_page.open('login')
         test_page.login("", "nefarious")
         assert test_page.invalid_auth() == "Please fill in all of the required fields"
 
     @pytest.mark.web()
     def test_login_empty_password(self):
-        test_page = HudlBase(self.driver)
-        test_page.open('')
-        test_page.login_hudl_from_homepage()
         test_page = LoginPage(self.driver)
+        test_page.open('login')
         test_page.login("notrealuser@someplacefake.edu", "")
         assert test_page.invalid_auth() == "Please fill in all of the required fields"
+
+    @pytest.mark.skip(reason="Not implemented")
+    def test_skipped(self):
+        pass
