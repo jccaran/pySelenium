@@ -28,6 +28,7 @@ The login page of the web application: https://www.hudl.com/login
 4. Password Policy - Test password complexity and strength requirements (API)
 5. Session Management - Session handling, logout, and timeout
 6. There are others, depending on the needs of security and what the highest risk threats identified by OWASP
+7. Password field is properly masked.
 
 ## Usability Tests
 1. Verify login is responsive on various screen sizes and devices
