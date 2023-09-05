@@ -9,7 +9,7 @@ The login page of the web application: https://www.hudl.com/login
 
 ## Functional Tests
 
-1. Verify the login page is accessible from the landing page (https://www.hudle.com)
+1. Verify the login page is accessible from the landing page (https://www.hudl.com)
 2. Verify the login page is accessible from the mobile landing page.
 3. Login Page navigation is present - Email, Password, Continue
 4. Verify additional links - Site Terms, Privacy Policy
